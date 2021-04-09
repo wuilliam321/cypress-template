@@ -1,0 +1,15 @@
+{
+  "name": "cypress-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com-personal:wuilliam321/cypress-template.git",
+  "author": "Wuilliam Lacruz <wuilliam321@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "open": "cypress open"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^7.0.5",
+    "cypress": "^7.0.1"
+  }
+}
