@@ -4,19 +4,28 @@ import MainPage from './main';
 export default function HomePage(driver) {
   const mainPage = MainPage(driver);
   // Attrs
-  const submitBtn = () => {
-    return driver.findByText('Enviar');
+  const usernameInput = () => {
+    return driver.findByRole('textbox', {name: /Correo electrónico/i});
+  };
+
+  const passwordInput = () => {
+    return driver.findByText('Contraseña');
+  };
+
+  const ingresarBtn = () => {
+    return driver.findByRole('button', {nome: /Ingresar/i});
   };
 
   // Actions
-  const clickSubmit = () => {
-    submitBtn().click();
+  const clickIngresarBtn = () => {
+    ingresarBtn().click();
     return mainPage;
   };
 
   return {
     ...BasePage(driver),
-    clickSubmit,
-    submitBtn,
+    usernameInput,
+    passwordInput,
+    clickIngresarBtn,
   };
-};
+}

@@ -1,5 +1,6 @@
 /// <reference types="Cypress" />
 import HomePage from '../pages/home';
+import {users} from '../fixtures/users';
 
 describe('Testing with page object', () => {
   let homePage;
@@ -9,12 +10,14 @@ describe('Testing with page object', () => {
     homePage.open();
   });
 
-  it('Home page title should be Test 1', () => {
-    homePage.pageTitle().should('eq', 'Test 1');
+  it('Home page should be login', () => {
+    homePage.pageTitle().should('eq', 'Partner Portal - Iniciar sesión');
   });
 
-  it('When click on submit, should redirect to About page', () => {
-    const mainPage = homePage.clickSubmit();
-    mainPage.pageTitle().should('eq', 'About');
+  it('Given a user with X perm and Flag X', () => {
+    homePage.usernameInput().type(users.email);
+    homePage.passwordInput().type(users.password);
+    const mainPage = homePage.clickIngresarBtn();
+    mainPage.pageTitle().should('eq', 'Partner Portal - Reportes');
   });
 });

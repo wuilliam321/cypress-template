@@ -1,6 +1,6 @@
 export default function BasePage(driver) {
   const open = url => {
-    driver.visit(url || 'http://localhost:8000');
+    driver.visit(url || 'https://stg-portal.pedidosya.com/');
   };
 
   const pageTitle = () => {
